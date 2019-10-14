@@ -9,6 +9,11 @@ export class TodoService {
   todoList:ITodo [] = [];
   constructor() { }
 
+  getAllTodoItems():ITodo[]
+  {
+    return this.todoList;
+  }
+
   getTodoItems(lane:string):ITodo[]
   {
     if(lane ==="Backlog")

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ITodo} from './interfaces/itodo';
 import {TodoService} from './services/todo-service.service';
+import {CommunicationService} from './services/communication.service'
 import { MatTableDataSource } from '@angular/material';
 
 @Component({
@@ -10,8 +11,12 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class AppComponent implements OnInit {
   title = 'My-Trello-Clone';
-  
-  constructor(private TodoService: TodoService){
+  todoTitle:string;
+  dueDate:Date = null;
+  todoId = 5;
+  public _reload = true;
+
+  constructor(private TodoService: TodoService, private comm:CommunicationService){
     
   }
   
@@ -29,4 +34,26 @@ export class AppComponent implements OnInit {
    
   }
 
+  addTodo():void{
+    this.TodoService.addTodoItem({
+      Id: this.todoId,
+      Title:this.todoTitle,
+      Backlog: true,
+      Working: false,
+      Complete: false,
+      CreationDate: new Date(),
+      DueDate: this.dueDate
+      
+    });
+    this.todoTitle="";
+    this.todoId++;
+    this.dueDate = null;
+    console.log(this.TodoService.getAllTodoItems())
+    this.reload();
+  }
+
+  private reload() {
+    setTimeout(() => this._reload = false);
+    setTimeout(() => this._reload = true);
+}
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {ITodo} from '../interfaces/Itodo'
+import {ITodo} from '../interfaces/Itodo';
 
 
 
@@ -17,15 +17,16 @@ export class TodoComponent implements OnInit {
   constructor() { console.log(this.todo);}
 
   ngOnInit() {
-    console.log(this.todo);
+    
     this.todoView();
   }
 
   todoView(){
     
     this.title = this.todo.Title.toString();
-    console.log(this.title);
+    
     this.cDate = this.todo.CreationDate.toDateString();
-    if(this.todo.DueDate!==null) this.dDate = this.todo.DueDate.toDateString();
+    console.log(this.todo.DueDate);
+    if(this.todo.DueDate) this.dDate = this.todo.DueDate.toDateString();
   }
 }

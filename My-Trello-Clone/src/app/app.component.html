@@ -1,5 +1,13 @@
-<app-table [state] = "'Backlog'" ></app-table>
+<input type="text" class="todo-input" placeholder="Add next todo here" [(ngModel)]="todoTitle" >
+<input type="date"class="todo-date" placeholder=" Due Date (optional)" [(ngModel)] = "dueDate">
+<button (click)=addTodo()>Submit</button>
 
-<app-table [state] = "'Working'" ></app-table>
+<ng-container *ngIf="this.comm.reset">
+<ng-container (reset)="reload" *ngIf="_reload">
+    <app-table [state] = "'Backlog'" ></app-table>
 
-<app-table [state] = "'Complete'" ></app-table>
+    <app-table [state] = "'Working'" ></app-table>
+    
+    <app-table [state] = "'Complete'" ></app-table>
+</ng-container>
+</ng-container>
