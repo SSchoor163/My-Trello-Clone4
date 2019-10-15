@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ITodo} from '../interfaces/Itodo';
+import { TodoService } from '../services/todo-service.service';
+import { CommunicationService } from '../services/communication.service';
+
 
 
 
@@ -14,11 +17,16 @@ export class TodoComponent implements OnInit {
   title;
   cDate;
   dDate;
-  constructor() { console.log(this.todo);}
+  constructor(private todoService:TodoService, private comm: CommunicationService) { console.log(this.todo);}
 
   ngOnInit() {
     
     this.todoView();
+  }
+
+  todoToggle(lane:string):void{
+    this.todoService.toggleTodoState(lane, this.todo.Id);
+    this.comm.resetView();
   }
 
   todoView(){
@@ -26,7 +34,8 @@ export class TodoComponent implements OnInit {
     this.title = this.todo.Title.toString();
     
     this.cDate = this.todo.CreationDate.toDateString();
-    console.log(this.todo.DueDate);
+ 
     if(this.todo.DueDate) this.dDate = this.todo.DueDate.toDateString();
+    console.log(this.dDate);
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { ITodo } from '../interfaces/Itodo';
+import { debug } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -59,7 +60,7 @@ export class TodoService {
     this.todoList.splice(index,1);
   }
   toggleTodoState(endLane:string, id: number):void{
-    const change= this.todoList.find(t=>t.Id===id);
+    let change= this.todoList.find(t=>t.Id===id);
     let index  = this.todoList.indexOf(change);
     if(endLane ==="Backlog")
     {
@@ -76,7 +77,9 @@ export class TodoService {
       change.Working = false;
       change.Complete = true;
       change.Backlog = false;
-    }else throwError("lane in toggleTodoState is incorrectly defined. should correspond to one of the of the ITodo Boolean variables");
+    }else 
+      console.log("Error, endlane cause no change" + change);
+    
     //TODO check cosonle validation then remove when confirmed
     this.todoList[index] = change;
   }

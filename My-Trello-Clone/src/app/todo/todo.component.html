@@ -3,5 +3,9 @@
     <p>{{cDate}}</p>
     <p>{{dDate}}</p>
     <app-delete-modal [todo] = todo></app-delete-modal>
+    <app-edit-modal [todo2] = todo></app-edit-modal>
+    <button (click)="todoToggle('Backlog')">Backlog</button>
+    <button (click)="todoToggle('Working')">Working</button>
+    <button (click)="todoToggle('Complete')">Complete</button>
 </div>
     

@@ -10,6 +10,7 @@ import { TableComponent } from './table/table.component';
 import {MatTableModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
+import { EditModalComponent } from './edit-modal/edit-modal.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { DeleteModalComponent } from './delete-modal/delete-modal.component';
     TodoComponent,
     TableComponent,
     DeleteModalComponent,
+    EditModalComponent,
     
   ],
   imports: [
