@@ -1,6 +1,47 @@
 div{
-    height: 100px;
-    width: 200px;
-    border: 1px green solid;
+    height: 200px;
+    width: 350px;
+    border: 5px green solid;
     display: inline-block;
+    margin: 10px 0 10px 0; 
+    text-align: center;
+     background-color: green;
+}
+p {
+    float: left;
+    
+    margin-left: 10px;
+}
+app-delete-modal{
+    float: right;
+}
+app-edit-modal{
+    display: block;
+    float: right;
+    margin-top: 15px;
+    padding-left: 100px;
+}
+button{
+    display: flexbox;
+    margin: 10px 15px 0 15px;
+}
+h2{
+    line-height: 10px;
+}
+span{
+    display: inline-block;
+    width: 250px;
+}
+.backlogClass{
+    background-color: green;
+}
+.workingClass{
+    background-color: yellow;;
+}
+.completeClass{
+    background-color: gray;
+    
+}
+.completeClass>H2{
+    text-decoration-line: line-through;
 }

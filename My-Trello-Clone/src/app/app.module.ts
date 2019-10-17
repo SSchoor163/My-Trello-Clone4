@@ -7,11 +7,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TodoComponent } from './todo/todo.component';
 import { TableComponent } from './table/table.component';
-import {MatTableModule} from '@angular/material';
+import {MatTableModule, MatSortModule, MatInput} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 import { EditModalComponent } from './edit-modal/edit-modal.component';
-
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,10 @@ import { EditModalComponent } from './edit-modal/edit-modal.component';
     BrowserAnimationsModule,
     MatTableModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    MatSortModule,
+    MatInputModule
+    
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

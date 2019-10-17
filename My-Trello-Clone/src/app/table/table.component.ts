@@ -29,4 +29,7 @@ export class TableComponent implements OnInit {
     });
     return data;
   }
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }

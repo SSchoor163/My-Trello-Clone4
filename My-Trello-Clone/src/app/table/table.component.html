@@ -1,8 +1,12 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
 <div class="mat-elevation-z8">
-    <table mat-table  [dataSource]="dataSource">
+  
+  <table mat-table  [dataSource]="dataSource">
       
       <ng-container matColumnDef="item">
-        <th mat-header-cell *matHeaderCellDef >{{this.state}}</th>
+        <th mat-header-cell *matHeaderCellDef class="title">{{this.state}}</th>
         <td mat-cell  *matCellDef="let item"><app-todo [todo]=item   ></app-todo></td>
       </ng-container>
     
@@ -10,4 +14,6 @@
       <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
   
     </table>
+    
+    
   </div>

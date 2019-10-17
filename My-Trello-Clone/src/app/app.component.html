@@ -1,7 +1,8 @@
-<input type="text" class="todo-input" placeholder="Add next todo here" [(ngModel)]="todoTitle" >
-<input type="date"class="todo-date" placeholder=" Due Date (optional)" [(ngModel)] = "dueDate">
+<div>
+<input type="text" class="todo-input" placeholder="Add next todo here"  data-toggle="tooltip" data-placement="top" title="Todo Title" [(ngModel)]="todoTitle" >
+<input type="date"class="todo-date" data-toggle="tooltip" data-placement="top" title="Optional Due Date" [(ngModel)] = "dueDate">
 <button (click)=addTodo()>Submit</button>
-
+</div>
 <ng-container *ngIf="this.comm.reset">
 <ng-container (reset)="reload" *ngIf="_reload">
     <app-table [state] = "'Backlog'" ></app-table>
@@ -9,5 +10,6 @@
     <app-table [state] = "'Working'" ></app-table>
     
     <app-table [state] = "'Complete'" ></app-table>
+    
 </ng-container>
 </ng-container>

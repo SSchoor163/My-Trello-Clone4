@@ -1,11 +1,12 @@
-<div>
-    <p>{{title}}</p>
-    <p>{{cDate}}</p>
-    <p>{{dDate}}</p>
-    <app-delete-modal [todo] = todo></app-delete-modal>
-    <app-edit-modal [todo2] = todo></app-edit-modal>
-    <button (click)="todoToggle('Backlog')">Backlog</button>
-    <button (click)="todoToggle('Working')">Working</button>
-    <button (click)="todoToggle('Complete')">Complete</button>
+<div class="card-body" [ngClass]="{'backlogClass': todo.Backlog, 'workingClass':todo.Working, 'completeClass':todo.Complete}">
+    <h2>{{title}}</h2> <br> 
+    <p>Created: {{cDate}}</p> <app-delete-modal [todo] = todo></app-delete-modal> <br>
+    <p *ngIf="dDate">Due: {{dDate}}</p><app-edit-modal [todo2] = todo></app-edit-modal><br>
+   
+    <span>
+        <button class="btn btn-primary" *ngIf="!todo.Backlog" (click)="todoToggle('Backlog')">Backlog</button>
+        <button class="btn btn-warning" *ngIf="!todo.Working"(click)="todoToggle('Working')">Working</button>
+        <button class="btn btn-secondary" *ngIf="!todo.Complete"(click)="todoToggle('Complete')">Complete</button>
+    </span>
 </div>
     

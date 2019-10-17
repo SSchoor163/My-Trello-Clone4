@@ -56,4 +56,5 @@ export class AppComponent implements OnInit {
     setTimeout(() => this._reload = false);
     setTimeout(() => this._reload = true);
 }
+
 }
